@@ -225,9 +225,15 @@
             baidu_link: $("#invalid_link_pan").val(),
             message: $("#invalid_message").val()
         },function(result){
-           var type = result.status === 1 ? 'success' : 'danger';
-           showToast(type, result.message);
-
+           var type = 'danger';
+           if (result.status === 1) {
+               type = 'success';
+               $("#invalid_link_type ").val('');
+               $("#invalid_link_name ").val('');
+               $("#invalid_link_pan ").val('');
+               $("#invalid_message").val('');
+           }
+            showToast(type, result.message);
         });
 
     });

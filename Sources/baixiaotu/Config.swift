@@ -9,7 +9,6 @@ import Foundation
 
 public struct Config {
     
-
     public struct MYSQL {
         
         public static var host: String {
@@ -106,7 +105,6 @@ public struct Config {
 
         SQLConfig = config["mysql"]!
         SMTPConfig = config["smtp"]!
-
     }
     
     
