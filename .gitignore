@@ -5,6 +5,8 @@
 ## Build generated
 build/
 DerivedData/
+.build/
+.idea/
 
 ## Various settings
 *.pbxuser
@@ -31,13 +33,14 @@ xcuserdata/
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+*.xcodeproj
 
 # Swift Package Manager
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 # Package.pins
-# Package.resolved
+Package.resolved
 .build/
 
 # CocoaPods
@@ -66,3 +69,5 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+baixiaotu.json

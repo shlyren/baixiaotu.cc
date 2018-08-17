@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>白小兔</title>
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="sources/favicon.ico" type="image/ico">
+        
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="收集整理舒畅影视剧作品"/>
+    <meta name="keywords" content="舒畅, CUT, 网盘, bilibili, 分享, 电视剧"/>
+    <meta name="author" content="任玉祥, mail@yuxaing.ren"/>
+
+
+
+    <!-- 引入bootstrap样式 -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入bootstrap-table样式 -->
+    <link href="//cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.css" rel="stylesheet">
+    <link href="css/bootoast.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+    <!-- bootstrap-table.min.js -->
+    <script src="//cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <!-- 引入中文语言包 -->
+    <script src="//cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+    <!-- table-export -->
+    <script src="js/bootstrap-table-export.js"></script>
+    <script src="js/tableExport.js"></script>
+    <!--<script src="js/bootstrap-table-toolbar.js"></script>-->
+    <script src="js/bootstrap-table-mobile.js"></script>
+
+    <script src="js/bootoast.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 50px 30px;
+        }
+        h4 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        a:hover {
+            cursor:pointer;
+        }
+        ul li {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 1.1em;
+            text-indent: 13px;
+        }
+        table {
+            /*font-size: 13px;*/
+        }
+
+    </style>
+
+</head>
+<body>
+<h1 style="text-align: center; margin-top: 10px;">舒&nbsp;&nbsp;&nbsp;&nbsp;畅</h1>
+<br><br>
+<p>整理一些<a href="http://weibo.baixiaotu.cc" target="_blank">舒畅</a>的影视剧及cut，分享给有需要的童鞋。</p>
+<br>
+<hr>
+<h4>说明</h4>
+<ul>
+    <li>提供表格内容导出，导出按钮在表格右上角(搜索框右边), 推荐导出为<strong>SCV</strong>或<strong>JSON</strong>文件;</li>
+    <li>支持内容搜索;</li>
+    <li>本页内容均来自互联网或对其进行二次编辑，如侵权请<a href="mailto:mail@yuxiang.ren?subject=baixiaotu.cc侵权通知&body=文件标题:" target="_blank">联系我</a>删除侵权内容；</li>
+    <li>链接失效<a href="mailto:mail@yuxiang.ren?subject=baixiaotu.cc百度云链接失效&body=文件标题:" target="_blank">@我</a>补发或者<a onclick="$('#invalid_link_modal').modal();">提交失效链接</a>(链接会被各种和谐)。</li>
+    <li>本站数据由本人整理和更新，如遇数据更新不及时，那就等等呗。</li>
+</ul>
+<br><hr>
+
+
+<h4>影视剧</h4>
+
+<table id="table_television"
+       data-toggle="table"
+       data-show-export="true"
+       data-show-refresh="true"
+       data-pagination="false"
+       data-search="true"
+       data-advanced-search="false"
+       data-click-to-select="true"
+       data-url="api/television?type=tv&from=web"
+       data-mobile-responsive="true"
+       data-toolbar="#toolbar_television">
+    <thead>
+        <tr>
+            <th data-field="state" data-checkbox=true></th>
+            <th data-field="index" data-formatter=televisionIndexFormatter data-width="30px">序号</th>
+            <th data-field="name" data-formatter=textFormatter>标题</th>
+            <th data-field="baidu_link" data-formatter=baiduPanLinkFromatter>百度云</th>
+            <th data-field="baidu_pwd" data-formatter=textFormatter>提取码</th>
+            <th data-field="bili_link" data-formatter=biliLinkFromatter>B站链接</th>
+            <th data-field="mark" data-formatter=textFormatter>说明</th>
+        </tr>
+    </thead>
+
+</table>
+
+<h4>Tips:</h4>
+<ul>
+    <li>B站全集稿件选择的是弹幕数最多；</li>
+    <li>部分网盘资源由舒畅吧网友提供(有备注)；</li>
+</ul>
+
+<br><hr>
+
+<h4>影视剧CUT</h4>
+<table id="table_television_cut"
+       data-toggle="table"
+       data-show-export="true"
+       data-show-refresh="true"
+       data-pagination="false"
+       data-search="true"
+       data-advanced-search="false"
+       data-click-to-select="true"
+       data-url="api/television?type=cut&from=web"
+       data-mobile-responsive="true">
+    <thead>
+        <tr>
+            <th data-field="state" data-checkbox=true></th>
+            <th data-field="index" data-formatter=televisionCutIndexFormatter data-width="30px">序号</th>
+            <th data-field="name" data-formatter=textFormatter>标题</th>
+            <th data-field="baidu_link" data-formatter=baiduPanLinkFromatter>百度云</th>
+            <th data-field="baidu_pwd" data-formatter=textFormatter>提取码</th>
+            <th data-field="bili_link" data-formatter=biliLinkFromatter>B站链接</th>
+            <th data-field="bili_full_link" data-formatter=biliLinkFromatter>B站全集</th>
+            <th data-field="mark" data-formatter=textFormatter>说明</th>
+        </tr>
+    </thead>
+</table>
+
+<h4>Tips:</h4>
+<ul>
+    <li>主要以整理bilibili电视剧CUT为主；</li>
+        <ul>
+            <li>软件: iMovie, Final Cut Pro。</li>
+        </ul>
+    <li>CUT提供网盘链接大部分为自己剪的(部分来自网友并有备注)；</li>
+</ul>
+
+<br><br>
+
+
+<div class="modal fade" id="invalid_link_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提交失效链接</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <label for="invalid_link_type">类型</label>
+                    <select id="invalid_link_type" name="invalid_link_type" class="form-control">
+                        <option value="0">影视剧</option>
+                        <option value="1">CUT</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="invalid_link_name">资源名称</label>
+                    <input type="text" name="name" class="form-control" id="invalid_link_name">
+                </div>
+                <div class="form-group">
+                    <label for="invalid_link_pan">失效链接</label>
+                    <input type="text" name="invalid_link_pan" class="form-control" id="invalid_link_pan">
+                </div>
+                <div class="form-group">
+                    <label for="invalid_message">说明</label>
+                    <textarea name="invalid_message" class="form-control" id="invalid_message" style="resize: vertical; height: 100px"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" id="btn_submit" class="btn btn-primary" data-dismiss="modal">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/comment.js"></script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+<script>
+    window.onload = function () {
+        setupSelectedAction();
+    };
+
+    //注册新增按钮的事件
+    $("#btn_submit").click(function () {
+        
+        $.post("api/link_invalid?from=web", {
+            type: $("#invalid_link_type ").val(),
+            name: $("#invalid_link_name").val(),
+            baidu_link: $("#invalid_link_pan").val(),
+            message: $("#invalid_message").val()
+        },function(result){
+           var type = result.status === 1 ? 'success' : 'danger';
+           showToast(type, result.message);
+
+        });
+
+    });
+
+    function setupSelectedAction() {
+        $('#table_television').bootstrapTable({
+            exportDataType: "selected",
+        });
+
+        $('#table_television_cut').bootstrapTable({
+            exportDataType: "selected"
+        });
+    }
+
+    biliLinkFromatter = function(value, row, index){
+        if (value == null) return "";
+        var title = getLastPathComponent(value);
+
+        if (title == null || title.indexOf("av") <= -1) {
+            title = "去B站观看";
+        }
+        return '<a href="'+value+'" target="_blank">'+ title +'</a>';
+    };
+
+    baiduPanLinkFromatter = function(value, row, index){
+
+        if (checkUrl(value) === false) return value;
+        return '<a href="'+value+'" target="_blank">百度云链接</a>';
+    };
+
+
+    textFormatter = function (value, row, index) {
+        if (value == null || value == undefined) return "";
+      return value;
+    };
+
+
+    televisionIndexFormatter = function(value, row, index){
+        return getIndex($('#table_television'), index);
+    };
+    televisionCutIndexFormatter = function(value,row,index){
+        return getIndex($('#table_television_cut'),  index)
+    };
+
+
+    function showSuccessToast(msg) {
+        showToast("success", msg)
+    }
+
+    function showFailureToast(msg) {
+        showToast("danger", msg)
+    }
+
+    function showToast(type, msg) {
+        bootoast({
+            message: msg,
+            type: type,
+            position: 'top',
+            timeout: 2
+        });
+    }
+
+    function getIndex(element, index) {
+        var options = element.bootstrapTable('getOptions');
+        return options.pageSize * (options.pageNumber - 1) + index + 1;    //返回每条的序号： 每页条数 * （当前页 - 1 ）+ 序号
+    }
+
+    function checkUrl(str) {
+        return new RegExp('^[A-Za-z]+://[A-Za-z0-9-_]+\\.[A-Za-z0-9-_%&\?\/.=]+$').test(str);
+    }
+
+    function getLastPathComponent(url) {
+
+        if (url == null) return url;
+
+        var htmlHref = url.replace(/^http:\/\/[^/]+/, "");
+        var addr = htmlHref.substr(htmlHref.lastIndexOf('/', htmlHref.lastIndexOf('/') - 1) + 1);
+        var index = addr.lastIndexOf("\/");
+        //js 获取字符串中最后一个斜杠后面的内容
+        var addrLast = decodeURI(addr.substring(index + 1, addr.length));
+
+        //js 获取字符串中最后一个斜杠前面的内容
+        // var str = decodeURI(addr.substring(0, index))
+
+        return addrLast;
+    }
+</script>
+
+
+</body>
+</html>
