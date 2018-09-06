@@ -13,7 +13,6 @@ public struct Config {
         public static var host = ""
         public static var user = ""
         public static var password = ""
-        
     }
     
     public struct SMTP {
@@ -37,7 +36,7 @@ public struct Config {
          }
      }
      */
-    static func loadConfig(path: String) {
+    public static func loadConfig(path: String) {
         
         let url = URL.init(fileURLWithPath: path)
 
