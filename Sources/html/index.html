@@ -199,7 +199,26 @@
     </div>
 </div>
 
-<script src="js/comment.js"></script>
+
+
+<div id="container"></div>
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'gitment.baixiaotu.cc', // 可选。这个选项不写（不是留空），默认为 location.href
+        owner: '白小兔',
+        repo: 'gitment.baixiaotu.cc',
+        oauth: {
+            client_id: '56f9a36ee2e62fa2f679',
+            client_secret: '1a424d679a70a08e2ab61be61d1b1bd920d0a11b',
+        },
+     });
+    gitment.render('container'); //container为你要显示评论的id
+</script>
+
+
+<!-- <script src="js/comment.js"></script> -->
 <script>
     (function(){
         var bp = document.createElement('script');
@@ -214,6 +233,9 @@
         s.parentNode.insertBefore(bp, s);
     })();
 </script>
+
+
+
 
 <script>
     window.onload = function () {
@@ -326,21 +348,6 @@
     }
 </script>
 
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        id: 'gitment.baixiaotu.cc', // 可选。这个选项不写（不是留空），默认为 location.href
-        owner: '白小兔',
-        repo: 'gitment.baixiaotu.cc',
-        oauth: {
-            client_id: '56f9a36ee2e62fa2f679',
-            client_secret: '1a424d679a70a08e2ab61be61d1b1bd920d0a11b',
-        },
-     });
-    gitment.render('container'); //container为你要显示评论的id
-</script>
 
 
 </body>
