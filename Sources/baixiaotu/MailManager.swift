@@ -40,7 +40,7 @@ class MailManager {
             "<p>资源标题: \(name);</p>" +
             "<p>资源类型: \(typeName);</p>" +
             "<p>资源链接: \(baiduLink);</p>" +
-            "<p>联系邮箱: \(mail);</p>"
+            "<p>联系邮箱: \(mail);</p>" +
             "<p>其他信息: \(content);</p>"
 
         // 设置收件人，包括收件人、抄送和秘密抄送
