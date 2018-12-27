@@ -38,14 +38,14 @@ class SQLManager {
     }
     
     // 失效链接反馈
-    func insertLinkInvalid(type: String, name: String, panLink: String, message: String) -> (Int, String) {
+    func insertLinkInvalid(type: String, name: String, panLink: String, mail: String,  message: String) -> (Int, String) {
         if name.count == 0 {
             return (-1, "名称不能为空")
         }
         guard connect() else {
             return (-1, "数据库连接失败")
         }
-        let sql = "insert into t_television_link (name, baidu_link, type, message) VALUES ('\(name)', '\(panLink)' ,'\(type)', '\(message)')"
+        let sql = "insert into t_television_link (name, baidu_link, type, mail, message) VALUES ('\(name)', '\(panLink)' ,'\(type)','\(mail)', '\(message)')"
         
         let success = mySql.query(statement: sql)
         
@@ -54,7 +54,7 @@ class SQLManager {
         closeConnect()
         
         let mail = MailManager()
-        mail.sendMail(type: type, name: name, baiduLink: panLink, content: message);
+        mail.sendMail(type: type, name: name, baiduLink: panLink, mail: mail, content: message);
         
         
         return (status, msg);

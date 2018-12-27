@@ -14,7 +14,7 @@ fileprivate let pwd = Config.SMTP.password // 密码
 
 class MailManager {
     
-    func sendMail(type: String, name: String, baiduLink: String, content: String) {
+    func sendMail(type: String, name: String, baiduLink: String, mail: String, content: String) {
         
         let client = SMTPClient.init(url: url, username: user, password: pwd, requiresTLSUpgrade: true)
         
@@ -40,6 +40,7 @@ class MailManager {
             "<p>资源标题: \(name);</p>" +
             "<p>资源类型: \(typeName);</p>" +
             "<p>资源链接: \(baiduLink);</p>" +
+            "<p>联系邮箱: \(mail);</p>"
             "<p>其他信息: \(content);</p>"
 
         // 设置收件人，包括收件人、抄送和秘密抄送
