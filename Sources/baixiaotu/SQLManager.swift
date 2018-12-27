@@ -53,8 +53,8 @@ class SQLManager {
         let status = success == true ? 1 : -1;
         closeConnect()
         
-        let mail = MailManager()
-        mail.sendMail(type: type, name: name, baiduLink: panLink, mail: mail, content: message);
+        let mailManager = MailManager()
+        mailManager.sendMail(type: type, name: name, baiduLink: panLink, mail: mail, content: message);
         
         
         return (status, msg);
