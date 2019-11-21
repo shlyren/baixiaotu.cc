@@ -107,7 +107,7 @@
        data-search="true"
        data-advanced-search="false"
        data-click-to-select="true"
-       data-url="api/television?type=tv&from=web"
+       data-url="workslist?type=0&from=web"
        data-mobile-responsive="true"
        data-toolbar="#toolbar_television">
     <thead>
@@ -141,7 +141,7 @@
        data-search="true"
        data-advanced-search="false"
        data-click-to-select="true"
-       data-url="api/television?type=cut&from=web"
+       data-url="workslist?type=0&from=web"
        data-mobile-responsive="true">
     <thead>
         <tr>
@@ -256,7 +256,7 @@
     //注册新增按钮的事件
     $("#btn_submit").click(function () {
         
-        $.post("api/link_invalid?from=web", {
+        $.post("feedback/resource", {
             type: $("#invalid_link_type ").val(),
             name: $("#invalid_link_name").val(),
             baidu_link: $("#invalid_link_pan").val(),
